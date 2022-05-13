@@ -1,0 +1,15 @@
+addresses:
+  - address: opstree.com
+    content: "hello from frontend server"
+  - address: application.opstree.com
+    content: "hello from application server"
+  - address: mongo.opstree.com
+    content: "hello from mongo server"
+  - address: mysql.opstree.com
+    content: "hello from MySQL server"
+  - address: es.opstree.com
+    content: "hello from ES server"
+  - address: redis.opstree.com
+    content: "hello from redis server"
+  - address: kafka.opstree.com
+    content: "hello from kafka server"
