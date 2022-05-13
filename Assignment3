@@ -1,3 +1,6 @@
+==========================
+Steps Performed Generally
+==========================
 apt-get update && apt-get upgrade -y
 apt install bc curl sudo wget bsdmainutils ruby toilet boxes -y
 wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
@@ -15,6 +18,8 @@ CMD []
 
 
 ===================
+Validated
+===================
 FROM ubuntu:18.04
 RUN apt-get update && apt-get upgrade -y
 RUN apt install bc curl sudo wget bsdmainutils ruby toilet boxes -y
@@ -29,3 +34,34 @@ RUN mkdir app
 WORKDIR /app
 COPY . .
 CMD ["bash"]
+
+
+
+====================
+References
+====================
+ubuntu:18.04
+apt-get update && apt-get upgrade -y
+apt install bc -y
+apt-get install curl sudo -y
+apt-get install gnupg2 -y // required for yq || apt-get install -y gnupg2 gnupg gnupg1
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 // yq
+apt install software-properties-common -y // to get apt-get-repository
+add-apt-repository ppa:rmescandon/yq -y // to add repositary for yq
+apt update -y
+apt install yq -y
+apt install toilet -y
+apt-get install bsdmainutils -y // to get column command
+apt-get install ruby -y // prerequisite for lolcat
+apt-get install wget -y
+wget https://github.com/busyloop/lolcat/archive/master.zip
+unzip master.zip
+cd lolcat-master/bin
+gem install lolcat
+cd /
+apt-get install boxes -y
+mkdir app
+WORKDIR /app
+COPY . .
+ENTRYPOINT []
+CMD []
