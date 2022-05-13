@@ -37,7 +37,10 @@ nullCheckerFunction() {
 
 _hostEntryRemoveFunc() {
     _removalIpAddressVar=$1
-    sudo sed -i '/##awsninjabatch/d' ${_hostFileLocation}
+    cp ${_hostFileLocation} ${_hostFileLocation}.new
+    sudo sed -i '/##awsninjabatch/d' ${_hostFileLocation}.new
+    cp ${_hostFileLocation}.new ${_hostFileLocation}
+    rm -rf  ${_hostFileLocation}.new
 }
 
 _hostEntryAddFunc() {
@@ -86,7 +89,7 @@ do
     ((_i++))
 done
 
-toilet  ${_organizationNameVar}  | boxes -d cat -a hc -p h8| lolcat -p 4.0 -F 0.0
+toilet  ${_organizationNameVar}  | boxes -d cat  -a hc -p h8| lolcat -p 4.0 -F 0.0
 echo ""
 echo "                              Abhyarthi:     ${_AbhyarthiNameVar}"  | boxes -d  stone |  lolcat
 echo ""
